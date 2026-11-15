@@ -12,6 +12,5 @@ If you use the default Chainlink example where `extraArgs` gas limit is set to `
 ```solidity
 extraArgs: Client._argsToBytes(
     Client.EVMExtraArgsV1({gasLimit: 0})
-
-
+),
 
