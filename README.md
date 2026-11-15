@@ -13,4 +13,23 @@ If you use the default Chainlink example where `extraArgs` gas limit is set to `
 extraArgs: Client._argsToBytes(
     Client.EVMExtraArgsV1({gasLimit: 0})
 ),
+💡 The Fix
 
+Instead of relying on the default 0 gas limit, we explicitly set gasLimit to 200_000 inside EVMExtraArgsV1:
+
+extraArgs: Client._argsToBytes(
+    Client.EVMExtraArgsV1({gasLimit: 200_000})
+),
+
+
+This ensures enough execution gas is allocated for the destination token pool logic on the L2 chain, completely resolving the state = 3 error.
+
+📍 Deployed Addresses (Sepolia)
+
+CCIPTokenSender: 0x8Fe9b40fCAe5cD8D73156E3D74E3eC40e3008B5f
+
+CCIP Router: 0x0BF3dE8c5D3e8A2B34D2BEeB17ABfCeBaf363A59
+
+USDC: 0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238
+
+LINK: 0x779877A7B0D9E8603169DdbD7836e478b4624789
